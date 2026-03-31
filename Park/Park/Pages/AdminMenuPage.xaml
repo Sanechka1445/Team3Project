@@ -9,6 +9,19 @@
       Title="AdminMenuPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="TextCurrentUser" FontSize="25" Foreground="DarkViolet" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
+
+        <Button Grid.Row="1" HorizontalAlignment="Center" Click="BtnUser_Click" Content="Пользователи" x:Name="BtnUser" FontSize="15" Width="500" Height="45"/>
+        <Button Grid.Row="2" HorizontalAlignment="Center" Click="BtnClient_Click" Content="Посетители" x:Name="BtnClient" FontSize="15" Width="500" Height="45"/>
+        <Button Grid.Row="3" HorizontalAlignment="Center" Click="BtnOrder_Click" Content="Посещение" x:Name="BtnOrder" FontSize="15" Width="500" Height="45"/>
+        <Button Grid.Row="4" HorizontalAlignment="Center" Click="BtnRoom_Clickc" Content="Атракцеоны" x:Name="BtnRoom" FontSize="15" Width="500" Height="45"/>
     </Grid>
 </Page>

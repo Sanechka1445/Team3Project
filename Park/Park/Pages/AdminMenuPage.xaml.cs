@@ -23,6 +23,33 @@ namespace Park.Pages
         public AdminMenuPage()
         {
             InitializeComponent();
+            TextCurrentUser.Text = App.CurrrentUser.fullName;
+
+            if (App.CurrrentUser.Role == 2)
+            {
+                BtnUser.Visibility = Visibility.Collapsed;
+                BtnRoom.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void BtnUser_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserPage());
+        }
+
+        private void BtnClient_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Данный функционал ещё не риавлизован!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void BtnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Данный функционал ещё не ривализован!","Внимание!", MessageBoxButton.OK, MessageBoxImage.Information );
+        }
+
+        private void BtnRoom_Clickc(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Данный функционал ещё не риализован!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information );
         }
     }
 }

@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net" modified="2026-04-01T18:22:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="wire-park" name="Wireframe">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="frame1" value="Экран 1. Главная страница / Каталог" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;fontStyle=1;fontSize=18;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="820" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1top" value="Логотип | Поиск | Каталог | Билеты | Мои бронирования | Профиль" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#64748b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="55" y="90" width="770" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1left" value="Фильтры&#xa;&#xa;Возраст&#xa;Зона&#xa;Тип аттракциона&#xa;Доступность" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="55" y="150" width="170" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1center" value="Каталог аттракционов&#xa;&#xa;[Карточка] Американские горки&#xa;[Карточка] Колесо обозрения&#xa;[Карточка] Дом страха&#xa;[Карточка] Автодром" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="245" y="150" width="420" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1right" value="Быстрый доступ&#xa;&#xa;Корзина&#xa;Ближайшая бронь&#xa;QR билета" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="685" y="150" width="140" height="280" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="frame2" value="Экран 2. Карточка аттракциона" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;fontStyle=1;fontSize=18;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="890" y="40" width="860" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2photo" value="Фото / баннер аттракциона" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="920" y="100" width="300" height="320" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2info" value="Название: Американские горки&#xa;Возраст: 12+&#xa;Рост: от 140 см&#xa;Длительность: 3 мин&#xa;Вместимость: 20 чел." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="100" width="480" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2slots" value="Доступные слоты&#xa;&#xa;01.04 | 14:00 | 14:15 | 6 мест | available&#xa;01.04 | 14:30 | 14:45 | 0 мест | full&#xa;&#xa;[Забронировать]    [Купить билет]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="250" width="480" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="frame3" value="Экран 3. Административная панель" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;fontStyle=1;fontSize=18;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="500" width="1050" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3menu" value="Меню&#xa;&#xa;Пользователи&#xa;Аттракционы&#xa;Слоты&#xa;Билеты&#xa;Обслуживание&#xa;Отчеты" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="55" y="560" width="200" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3filter" value="Поиск | Фильтр по статусу | Период | Экспорт" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#64748b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="280" y="560" width="770" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3table" value="Таблица данных&#xa;&#xa;ID | Название | Тип | Зона | Статус | Действия&#xa;1 | Американские горки | Экстремальный | A | active | Изменить&#xa;2 | Колесо обозрения | Семейный | B | active | Изменить&#xa;3 | Дом страха | Тематический | C | maintenance | Изменить" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="280" y="625" width="770" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3btns" value="[Добавить]   [Изменить]   [Удалить]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="280" y="945" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="frame4" value="Экран 4. Оформление заказа" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;fontStyle=1;fontSize=18;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="500" width="360" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4content" value="Выбранные билеты&#xa;2 x Семейный билет&#xa;&#xa;Дата посещения&#xa;[ 01.04.2026 ]&#xa;&#xa;Способ оплаты&#xa;[Карта] [Наличные]&#xa;&#xa;Итого: 5000 руб.&#xa;&#xa;[Подтвердить заказ]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=12;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1145" y="555" width="310" height="430" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="frame5" value="Экран 5. Мобильная версия" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;fontStyle=1;fontSize=18;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="500" width="230" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5content" value="Мой билет&#xa;01.04.2026&#xa;QR / номер заказа&#xa;&#xa;Популярные аттракционы&#xa;Американские горки&#xa;Колесо обозрения&#xa;Автодром&#xa;&#xa;[Забронировать]&#xa;&#xa;Главная | Аттракционы | Билеты | Профиль" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;verticalAlign=top;spacingTop=12;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="555" width="190" height="430" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

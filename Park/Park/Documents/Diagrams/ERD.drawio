@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net" modified="2026-04-01T18:40:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="erd-park-ru" name="ER-диаграмма">
+    <mxGraphModel dx="1714" dy="972" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1280" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="ER-диаграмма информационной системы &quot;Парк развлечений&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="10" width="880" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t1" value="&lt;b&gt;Роли&lt;/b&gt;&lt;hr/&gt;PK КодРоли&lt;br/&gt;НазваниеРоли&lt;br/&gt;Описание" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="240" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="&lt;b&gt;Пользователи&lt;/b&gt;&lt;hr/&gt;PK КодПользователя&lt;br/&gt;FK КодРоли&lt;br/&gt;ФИО&lt;br/&gt;Email&lt;br/&gt;Телефон&lt;br/&gt;Пароль&lt;br/&gt;Статус&lt;br/&gt;ДатаСоздания" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="80" width="260" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="&lt;b&gt;Заказы&lt;/b&gt;&lt;hr/&gt;PK КодЗаказа&lt;br/&gt;FK КодПользователя&lt;br/&gt;НомерЗаказа&lt;br/&gt;ДатаЗаказа&lt;br/&gt;Сумма&lt;br/&gt;СпособОплаты&lt;br/&gt;СтатусОплаты&lt;br/&gt;СтатусЗаказа" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="650" y="80" width="280" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4" value="&lt;b&gt;Билеты&lt;/b&gt;&lt;hr/&gt;PK КодБилета&lt;br/&gt;FK КодЗаказа&lt;br/&gt;FK КодТипаБилета&lt;br/&gt;QRКод&lt;br/&gt;ДатаПосещения&lt;br/&gt;ДатаВыдачи&lt;br/&gt;СтатусБилета&lt;br/&gt;ЦенаПокупки" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="990" y="80" width="270" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="t5" value="&lt;b&gt;Типы билетов&lt;/b&gt;&lt;hr/&gt;PK КодТипаБилета&lt;br/&gt;НазваниеБилета&lt;br/&gt;Категория&lt;br/&gt;Цена&lt;br/&gt;СрокДействия&lt;br/&gt;УровеньДоступа&lt;br/&gt;Активен" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="80" width="280" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t6" value="&lt;b&gt;Зоны парка&lt;/b&gt;&lt;hr/&gt;PK КодЗоны&lt;br/&gt;НазваниеЗоны&lt;br/&gt;ОписаниеРасположения&lt;br/&gt;Тематика&lt;br/&gt;ВремяОткрытия&lt;br/&gt;ВремяЗакрытия" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="t7" value="&lt;b&gt;Аттракционы&lt;/b&gt;&lt;hr/&gt;PK КодАттракциона&lt;br/&gt;FK КодЗоны&lt;br/&gt;НазваниеАттракциона&lt;br/&gt;ТипАттракциона&lt;br/&gt;ВозрастноеОграничение&lt;br/&gt;МинРостСм&lt;br/&gt;ДлительностьМин&lt;br/&gt;Вместимость&lt;br/&gt;Статус" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="400" width="300" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="t8" value="&lt;b&gt;Слоты бронирования&lt;/b&gt;&lt;hr/&gt;PK КодСлота&lt;br/&gt;FK КодАттракциона&lt;br/&gt;ДатаСлота&lt;br/&gt;ВремяНачала&lt;br/&gt;ВремяОкончания&lt;br/&gt;Вместимость&lt;br/&gt;Статус" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="690" y="430" width="280" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="t9" value="&lt;b&gt;Бронирования&lt;/b&gt;&lt;hr/&gt;PK КодБронирования&lt;br/&gt;FK КодСлота&lt;br/&gt;FK КодПользователя&lt;br/&gt;FK КодБилета&lt;br/&gt;ДатаБронирования&lt;br/&gt;КоличествоПосетителей&lt;br/&gt;СтатусБрони&lt;br/&gt;ВремяПрохода" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="400" width="300" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="t10" value="&lt;b&gt;Заявки на обслуживание&lt;/b&gt;&lt;hr/&gt;PK КодЗаявки&lt;br/&gt;FK КодАттракциона&lt;br/&gt;FK КодТехника&lt;br/&gt;ТипОбслуживания&lt;br/&gt;ДатаСоздания&lt;br/&gt;ПлановаяДата&lt;br/&gt;ДатаЗавершения&lt;br/&gt;Статус&lt;br/&gt;Комментарий" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;strokeWidth=2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="390" width="310" height="240" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r1" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t2" target="t3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t3" target="t4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t5" target="t4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t6" target="t7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t7" target="t8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r7" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t8" target="t9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r8" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t4" target="t9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r9" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t2" target="t9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="350"/>
+              <mxPoint x="1170" y="350"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r10" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t7" target="t10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="700"/>
+              <mxPoint x="1535" y="700"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r11" value="1:М" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="t2" target="t10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="330"/>
+              <mxPoint x="220" y="760"/>
+              <mxPoint x="1500" y="760"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,37 +1,107 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Park.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для UserPage.xaml
-    /// </summary>
     public partial class UserPage : Page
     {
+        // Храним полный список пользователей
+        private List<Model.User> _allUsers = new List<Model.User>();
+
         public UserPage()
         {
             InitializeComponent();
-            UserDataGrid.ItemsSource = App.Context.Users.ToList();
+            LoadUsers();
+        }
+
+        // Загружаем всех пользователей из БД
+        private void LoadUsers()
+        {
+            _allUsers = App.Context.Users.ToList();
+            ApplyFilters();
+        }
+
+        // Применяем поиск + фильтр + сортировку
+        private void ApplyFilters()
+        {
+            var result = _allUsers.AsEnumerable();
+
+            // Поиск по фамилии или имени
+            string search = SearchBox.Text.Trim().ToLower();
+            if (!string.IsNullOrEmpty(search))
+            {
+                result = result.Where(u =>
+                    (u.LastName != null && u.LastName.ToLower().Contains(search)) ||
+                    (u.FirstName != null && u.FirstName.ToLower().Contains(search)) ||
+                    (u.Patronymic != null && u.Patronymic.ToLower().Contains(search)));
+            }
+
+            // Фильтр по статусу блокировки
+            if (FilterComboBox.SelectedItem is ComboBoxItem filterItem)
+            {
+                switch (filterItem.Content.ToString())
+                {
+                    case "Активные":
+                        result = result.Where(u => u.Block == false);
+                        break;
+                    case "Заблокированные":
+                        result = result.Where(u => u.Block == true);
+                        break;
+                }
+            }
+
+            // Сортировка
+            if (SortComboBox.SelectedItem is ComboBoxItem sortItem)
+            {
+                switch (sortItem.Content.ToString())
+                {
+                    case "По фамилии А-Я":
+                        result = result.OrderBy(u => u.LastName);
+                        break;
+                    case "По фамилии Я-А":
+                        result = result.OrderByDescending(u => u.LastName);
+                        break;
+                    case "По имени А-Я":
+                        result = result.OrderBy(u => u.FirstName);
+                        break;
+                    case "По имени Я-А":
+                        result = result.OrderByDescending(u => u.FirstName);
+                        break;
+                }
+            }
+
+            UserDataGrid.ItemsSource = result.ToList();
+        }
+
+        // Поиск при вводе текста
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        // Фильтр при выборе статуса
+        private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserDataGrid != null)
+                ApplyFilters();
+        }
+
+        // Сортировка при выборе
+        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserDataGrid != null)
+                ApplyFilters();
         }
 
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
         {
             Windows.AddUserWindow addUser = new Windows.AddUserWindow();
-            if (addUser.ShowDialog() == true )
+            if (addUser.ShowDialog() == true)
             {
-                UserDataGrid.ItemSource = App.Context.Users.ToList();
+                LoadUsers();
             }
         }
 
@@ -39,15 +109,17 @@ namespace Park.Pages
         {
             try
             {
-                if (MessageBox.Show("Сохранить изменения?", "Редактирование данных!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Сохранить изменения?", "Редактирование данных!",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     App.Context.SaveChanges();
-                    UserDataGrid.ItemsSource = App.Context.Users.ToList();
+                    LoadUsers();
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Ошибка в сохранении изменений! Проверьте введенные данные", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ошибка в сохранении изменений!", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

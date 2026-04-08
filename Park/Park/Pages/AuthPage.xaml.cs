@@ -1,28 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Park.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
-    /// </summary>
     public partial class AuthPage : Page
     {
         public AuthPage()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string login = LoginBox.Text.Trim();
+            string password = PasswordBox.Password;
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                ErrorText.Text = "Введите логин и пароль!";
+                return;
+            }
+
+            var user = App.Context.Users
+                .FirstOrDefault(u => u.Login == login && u.Password == password);
+
+            if (user == null)
+            {
+                ErrorText.Text = "Неверный логин или пароль!";
+                return;
+            }
+
+            if (user.Block == true)
+            {
+                ErrorText.Text = "Ваш аккаунт заблокирован!";
+                return;
+            }
+
+            App.CurrrentUser = user;
+
+            if (user.Role == 1)
+                NavigationService.Navigate(new AdminMenuPage());
+            else
+                NavigationService.Navigate(new UserPage());
         }
     }
 }

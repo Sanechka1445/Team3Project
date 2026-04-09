@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -94,6 +95,9 @@ namespace Park.Pages
         {
             if (UserDataGrid != null)
                 ApplyFilters();
+
+            // TODO: раскомментировать после создания Model
+            // UserDataGrid.ItemsSource = App.Context.Users.ToList();
         }
 
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
@@ -114,6 +118,8 @@ namespace Park.Pages
                 {
                     App.Context.SaveChanges();
                     LoadUsers();
+                    // App.Context.SaveChanges();
+                    // UserDataGrid.ItemsSource = App.Context.Users.ToList();
                 }
             }
             catch (Exception)

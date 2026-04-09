@@ -10,21 +10,25 @@
 
     <Grid Background="#1a1a2e">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+
             <TextBlock Text="Парк развлечений"
                        FontSize="24" FontWeight="Bold"
                        Foreground="White"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,30"/>
+
             <TextBlock Text="Логин" Foreground="White" Margin="0,0,0,5"/>
             <TextBox x:Name="LoginBox"
                      Height="35" FontSize="14"
                      Padding="8,5"
                      Margin="0,0,0,15"/>
+
             <TextBlock Text="Пароль" Foreground="White" Margin="0,0,0,5"/>
             <PasswordBox x:Name="PasswordBox"
                          Height="35" FontSize="14"
                          Padding="8,5"
                          Margin="0,0,0,25"/>
+
             <Button x:Name="LoginButton"
                     Content="Войти"
                     Height="40" FontSize="16"
@@ -32,6 +36,7 @@
                     BorderThickness="0"
                     Cursor="Hand"
                     Click="LoginButton_Click"/>
+
             <TextBlock x:Name="ErrorText"
                        Foreground="Red"
                        FontSize="13"

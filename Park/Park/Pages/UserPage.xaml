@@ -7,25 +7,64 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Пользователи">
-
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="1" HorizontalAlignment="Left" Click="BtnAddUser_Click" Content="Добавить пользователя" x:Name="BtnAddUser" FontSize="15" Width="200" Height="50"/>
-        <Button Grid.Row="1" HorizontalAlignment="Right" Click="BtnSaveChanges_CLick" Content="Сохранить изменения" x:Name="BtnSaveChanges" FontSize="15" Width="200" Height="50"/>
+        <!-- Панель поиска, фильтрации и сортировки -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <!-- Поиск -->
+            <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="SearchBox" Width="180" Height="30"
+                     VerticalAlignment="Center" Margin="0,0,10,0"
+                     TextChanged="SearchBox_TextChanged"/>
 
-        <DataGrid Grid.Row="0" x:Name="UserDataGrid" AutoGenerateColumns="False" FontSize="8" BorderBrush="DarkViolet" Foreground="DarkViolet">
+            <!-- Фильтр по блокировке -->
+            <TextBlock Text="Статус:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="FilterComboBox" Width="130" Height="30"
+                      VerticalAlignment="Center" Margin="0,0,10,0"
+                      SelectionChanged="FilterComboBox_SelectionChanged">
+                <ComboBoxItem Content="Все" IsSelected="True"/>
+                <ComboBoxItem Content="Активные"/>
+                <ComboBoxItem Content="Заблокированные"/>
+            </ComboBox>
+
+            <!-- Сортировка -->
+            <TextBlock Text="Сортировка:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="SortComboBox" Width="130" Height="30"
+                      VerticalAlignment="Center"
+                      SelectionChanged="SortComboBox_SelectionChanged">
+                <ComboBoxItem Content="По фамилии А-Я" IsSelected="True"/>
+                <ComboBoxItem Content="По фамилии Я-А"/>
+                <ComboBoxItem Content="По имени А-Я"/>
+                <ComboBoxItem Content="По имени Я-А"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- Таблица пользователей -->
+        <DataGrid Grid.Row="1" x:Name="UserDataGrid" AutoGenerateColumns="False"
+                  FontSize="13" BorderBrush="DarkViolet" Foreground="DarkViolet"
+                  IsReadOnly="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Binding="{Binding LastName}" Header="Фамилия"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding FirstName}" Header="Имя"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding Patronymic}" Header="Отчество"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding PhoneNumber}" Header="Номер телефона"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding Address}" Header="Адрес"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Width="*" Binding="{Binding Block}" Header="Заблокирован?"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding LastName}" Header="Фамилия"/>
+                <DataGridTextColumn Width="*" Binding="{Binding FirstName}" Header="Имя"/>
+                <DataGridTextColumn Width="*" Binding="{Binding Patronymic}" Header="Отчество"/>
+                <DataGridTextColumn Width="*" Binding="{Binding PhoneNumber}" Header="Номер телефона"/>
+                <DataGridCheckBoxColumn Width="*" Binding="{Binding Block}" Header="Заблокирован?"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Button HorizontalAlignment="Left" Click="BtnAddUser_Click"
+                    Content="Добавить пользователя" x:Name="BtnAddUser"
+                    FontSize="15" Width="200" Height="50" Margin="5"/>
+            <Button HorizontalAlignment="Right" Click="BtnSaveChanges_CLick"
+                    Content="Сохранить изменения" x:Name="BtnSaveChanges"
+                    FontSize="15" Width="200" Height="50" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Page>

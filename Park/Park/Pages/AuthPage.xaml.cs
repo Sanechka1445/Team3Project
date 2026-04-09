@@ -16,14 +16,14 @@ namespace Park.Pages
             string login = LoginBox.Text.Trim();
             string password = PasswordBox.Password;
 
-            // Проверка на пустые поля
+
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
                 ErrorText.Text = "Введите логин и пароль!";
                 return;
             }
 
-            // Ищем пользователя в базе данных
+
             var user = App.Context.Users
                 .FirstOrDefault(u => u.Login == login && u.Password == password);
 
@@ -39,6 +39,13 @@ namespace Park.Pages
                 return;
             }
 
+
+            App.CurrrentUser = user;
+
+            if (user.Role == 1)
+                NavigationService.Navigate(new AdminMenuPage());
+            else
+                NavigationService.Navigate(new UserPage());
             // Сохраняем текущего пользователя
             App.CurrrentUser = user;
 
@@ -51,6 +58,7 @@ namespace Park.Pages
             {
                 NavigationService.Navigate(new UserPage());
             }
+
         }
     }
 }
